@@ -8,6 +8,7 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         app:coverColor="#aaaaaa"
+        app:waterImg="@mipmap/ic_launcher"
         app:eraserSize="50"/>
 
 </FrameLayout>

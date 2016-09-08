@@ -266,5 +266,12 @@ public class ScratchView extends View {
         return super.onTouchEvent(event);
     }
 
-
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        coverBitmap.recycle();
+        coverBitmap = null;
+        mWatermark.getBitmap().recycle();
+        mWatermark = null;
+    }
 }
