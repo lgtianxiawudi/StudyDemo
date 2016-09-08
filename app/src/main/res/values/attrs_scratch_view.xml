@@ -1,0 +1,7 @@
+<resources>
+    <declare-styleable name="ScratchView">
+        <attr name="coverColor" format="color|reference" />
+        <attr name="eraserSize" format="float" />
+        <attr name="waterImg" format="reference" />
+    </declare-styleable>
+</resources>

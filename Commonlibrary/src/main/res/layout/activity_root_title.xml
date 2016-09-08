@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:background="#FFFFFF"
-	android:id="@+id/root_rl" >
+	android:layout_height="match_parent">
 
 	<RelativeLayout
 		android:layout_width="fill_parent"
@@ -35,7 +33,7 @@
 				android:src="@drawable/back"/>
 			<TextView
 				android:id="@+id/left_text"
-				android:textSize="@dimen/x14"
+				style="@style/style_common_title"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_centerInParent="true"/>
@@ -59,8 +57,8 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_centerInParent="true"
-				android:textSize="@dimen/x14" />
+				style="@style/style_common_title" />
 		</RelativeLayout>
 	</RelativeLayout>
 
-</RelativeLayout>
+</merge>

@@ -39,7 +39,6 @@ public abstract class BaseActivity extends SwipeBackActivity {
         AbSystemBarTintManager tintManager = new AbSystemBarTintManager(this);
         tintManager.setTintColor(Color.WHITE); //  set status bar color
         initBaseView();
-        initBaseData();
     }
 
     /**
@@ -55,10 +54,8 @@ public abstract class BaseActivity extends SwipeBackActivity {
      */
     protected abstract void requestData();
 
+    protected abstract void initView();
 
-    private void initBaseData() {
-
-    }
 
     private void initBaseView() {
         content = (FrameLayout) findViewById(R.id.root_container);
@@ -91,6 +88,7 @@ public abstract class BaseActivity extends SwipeBackActivity {
     @Override
     public void setContentView(int layoutResID) {
         LayoutInflater.from(this).inflate(layoutResID, content);
+        initView();
     }
 
     @Override
@@ -107,12 +105,13 @@ public abstract class BaseActivity extends SwipeBackActivity {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
-        content.addView(view, layoutParams);
+        setContentView(view,layoutParams);
     }
 
     @Override
     public void setContentView(View view, ViewGroup.LayoutParams params) {
         content.addView(view, params);
+        initView();
     }
 
     @Override

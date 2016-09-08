@@ -2,4 +2,12 @@
     <string name="app_name">StudyDemo</string>
     //main
     <string name="main_title">学习内容目录</string>
+    <string name="main_tab_index">主页</string>
+    <string name="main_tab_message">消息</string>
+    <string name="main_tab_shop">商店</string>
+    <string name="main_tab_library">Lib</string>
+    <array name="main_list">
+        <item>自定义刮奖功能</item>
+        <item>进度条</item>
+    </array>
 </resources>

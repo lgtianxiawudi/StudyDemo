@@ -20,7 +20,6 @@ import com.example.ligang.commonlibrary.R;
  */
 public class TopTitleView extends RelativeLayout {
 	private Context mContext;
-	private RelativeLayout rootRl = null;
 	private TextView rootTitleTv = null;
 	private RelativeLayout rootLeftRl = null;
 	private RelativeLayout rootRightRl = null;
@@ -57,26 +56,17 @@ public class TopTitleView extends RelativeLayout {
 		}else{
 			View layout = LayoutInflater.from(mContext).inflate(R.layout.activity_root_title, this, true);
 			rootTitleTv = (TextView) layout.findViewById(R.id.root_title);
-			rootRl = (RelativeLayout) layout.findViewById(R.id.root_rl);
 			rootLeftRl = (RelativeLayout) layout.findViewById(R.id.root_left_rl);
 			rootRightRl = (RelativeLayout) layout.findViewById(R.id.root_right_rl);
 			leftImgIv = (ImageView) layout.findViewById(R.id.left_img);
 			leftTextTv=(TextView)layout.findViewById(R.id.left_text);
 			rightImgIv = (ImageView) layout.findViewById(R.id.right_img);
 			rightTextTv = (TextView) layout.findViewById(R.id.right_text);
-
-			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
-				rootRl.setFitsSystemWindows(true);
-	        }
 		}
 	}	
 	
 
-	/**设置title背景*/
-	public void setTitleImageResource(int resourseID){
-		rootRl.setBackgroundResource(resourseID);
-	}
-	
+
 	/**设置标题内容*/
 	public void setTitle(String title){
 		rootTitleTv.setText(title);
