@@ -10,4 +10,8 @@
         <item>自定义刮奖功能</item>
         <item>进度条</item>
     </array>
+    //scratch
+    <string name="scratch_title">自定义刮奖功能</string>
+    //仪表盘
+    <string name="dashboard_title">仪表盘</string>
 </resources>
