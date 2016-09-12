@@ -8,6 +8,7 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PathMeasure;
+import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.SweepGradient;
 import android.icu.util.MeasureUnit;
@@ -50,6 +51,10 @@ public class DashboardView extends View {
 
     private float currentAnimValue = 0;//动画进度值
 
+    private Paint centerLogoPain = null;
+
+    private String logoContent = "Beta";
+
     public DashboardView(Context context) {
         super(context);
         init(null, 0);
@@ -71,6 +76,7 @@ public class DashboardView extends View {
         initOutLineTextPaint();
         initInnerCirclePain();
         initInnerCircleSmall();
+        initCenterLogoPain();
     }
 
     private void initOutCircleBgPaint() {
@@ -119,6 +125,14 @@ public class DashboardView extends View {
         innerCircleSmall.setColor(Color.BLUE);
     }
 
+    private void initCenterLogoPain(){
+        centerLogoPain = new Paint();
+        centerLogoPain.setAntiAlias(true);
+        centerLogoPain.setDither(true);
+        centerLogoPain.setColor(Color.GREEN);
+        centerLogoPain.setTextSize(24);
+    }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         return super.onTouchEvent(event);
@@ -135,6 +149,7 @@ public class DashboardView extends View {
         drawOutCircle(canvas);
         drawOutCircleLine(canvas);
         drawInnerCircle(canvas);
+        drawLogoAndProgress(canvas);
     }
 
     private void drawOutCircle(Canvas canvas) {
@@ -192,6 +207,28 @@ public class DashboardView extends View {
         canvas.drawPath(path, innerCirclePain);
 
         canvas.drawCircle(mCurrentPosition[0],mCurrentPosition[1],outCircleBgPainSize/2,innerCircleSmall);
+
+        canvas.restoreToCount(saveCount);
+    }
+
+    private void drawLogoAndProgress(Canvas canvas){
+        int saveCount = canvas.getSaveCount();
+
+        float contentLengthLogo = centerLogoPain.measureText(logoContent);
+
+        Rect rectLogo = new Rect();
+
+        centerLogoPain.getTextBounds(logoContent,0,logoContent.length(),rectLogo);
+
+        float contentHeight = centerLogoPain.descent()+centerLogoPain.ascent();
+
+        canvas.drawText(logoContent,rectF.centerX()-contentLengthLogo/2,rectF.centerY(),centerLogoPain);
+
+        String proContent = (int)currentAnimValue+"";
+
+        float contentLengthPro = centerLogoPain.measureText(proContent);
+
+        canvas.drawText(currentAnimValue+"",rectF.centerX()-contentLengthPro/2,rectF.centerY()+rectLogo.height()+10,centerLogoPain);
 
         canvas.restoreToCount(saveCount);
     }
