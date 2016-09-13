@@ -3,7 +3,20 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.1"
-
+    signingConfigs {
+        debug {
+            keyAlias 'android'
+            keyPassword 'Hcloud@1234'
+            storeFile file('../app/key/Hcloud@1234.keystore')
+            storePassword 'Hcloud@1234'
+        }
+        release {
+            keyAlias 'android'
+            keyPassword 'Hcloud@1234'
+            storeFile file('../app/key/Hcloud@1234.keystore')
+            storePassword 'Hcloud@1234'
+        }
+    }
     defaultConfig {
         applicationId "com.example.ligang.studydemo"
         minSdkVersion 19
@@ -14,8 +27,25 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            buildConfigField "boolean","IS_DEBUG","false"
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            minifyEnabled false
+            buildConfigField "boolean","IS_DEBUG","true"
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        // set to true to turn off analysis progress reporting by lint
+        quiet true
+        // if true, stop the gradle build if errors are found
+        abortOnError false
+        // if true, only report errors
+        ignoreWarnings true
+    }
+    dexOptions{
+        javaMaxHeapSize "2g"
     }
 }
 

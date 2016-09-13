@@ -1,9 +1,12 @@
 package com.example.ligang.studydemo.dashboard.ui;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.ligang.commonlibrary.base.ui.BaseActivity;
+import com.example.ligang.commonlibrary.util.LogUtil;
 import com.example.ligang.commonlibrary.view.TopTitleView;
+import com.example.ligang.studydemo.BuildConfig;
 import com.example.ligang.studydemo.R;
 import com.example.ligang.studydemo.dashboard.view.DashboardView;
 
@@ -36,6 +39,8 @@ public class DashboardDemoActivity extends BaseActivity {
         dashboardView = (DashboardView) findViewById(R.id.dashbaosrd_demo);
         dashboardView.setMinAndMaxValue(250,350);
         dashboardView.setCurrentValue(300);
-
+        Log.e("LG", BuildConfig.IS_DEBUG+"");
+        LogUtil.setEnvIsdebug(BuildConfig.IS_DEBUG);
+        LogUtil.d("LG");
     }
 }
