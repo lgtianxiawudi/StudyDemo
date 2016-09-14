@@ -16,7 +16,7 @@ import com.example.ligang.commonlibrary.R;
 
 /**
  *@author:郁俊耀
- *@data:2015-8-25 上午10:25:54
+ *2015-8-25 上午10:25:54
  */
 public class TopTitleView extends RelativeLayout {
 	private Context mContext;

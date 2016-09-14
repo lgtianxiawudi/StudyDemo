@@ -50,7 +50,6 @@ public abstract class BaseActivity extends SwipeBackActivity {
     /**
      * 请求数据
      *
-     * @return
      */
     protected abstract void requestData();
 

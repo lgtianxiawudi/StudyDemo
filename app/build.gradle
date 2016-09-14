@@ -47,10 +47,15 @@ android {
     dexOptions{
         javaMaxHeapSize "2g"
     }
+    aaptOptions {
+        additionalParameters "--no-version-vectors"
+    }
 }
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile project(':Commonlibrary')
+//    compile 'com.example.ligang.commonlibrary:LGCommonLibrary:0.0.1'
+    compile 'com.google.android.gms:play-services-appindexing:8.4.0'
 }

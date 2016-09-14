@@ -504,9 +504,7 @@ public class ViewDragHelper {
 	/**
 	 * Enable edge tracking for the selected edges of the parent view. The
 	 * callback's
-	 * {@link com.way.ui.swipeback.ViewDragHelper.Callback#onEdgeTouched(int, int)}
 	 * and
-	 * {@link com.way.ui.swipeback.ViewDragHelper.Callback#onEdgeDragStarted(int, int)}
 	 * methods will only be invoked for edges for which edge tracking has been
 	 * enabled.
 	 * 
@@ -548,7 +546,6 @@ public class ViewDragHelper {
 	/**
 	 * Capture a specific child view for dragging within the parent. The
 	 * callback will be notified but
-	 * {@link com.way.ui.swipeback.ViewDragHelper.Callback#tryCaptureView(View, int)}
 	 * will not be asked permission to capture this view.
 	 * 
 	 * @param childView
@@ -1643,7 +1640,6 @@ public class ViewDragHelper {
 	/**
 	 * Find the topmost child under the given point within the parent view's
 	 * coordinate system. The child order is determined using
-	 * {@link com.way.ui.swipeback.ViewDragHelper.Callback#getOrderedChildIndex(int)}
 	 * .
 	 * 
 	 * @param x

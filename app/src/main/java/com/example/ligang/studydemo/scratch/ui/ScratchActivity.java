@@ -1,5 +1,8 @@
 package com.example.ligang.studydemo.scratch.ui;
 
+import android.graphics.drawable.VectorDrawable;
+import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
+import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 

@@ -2,9 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/image_view"/>
     <com.example.ligang.studydemo.dashboard.view.DashboardView
         android:id="@+id/dashbaosrd_demo"
+        android:visibility="gone"
         android:layout_width="@dimen/x240"
         android:layout_height="@dimen/y240"/>
 </LinearLayout>
