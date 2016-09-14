@@ -14,6 +14,7 @@ import android.graphics.RectF;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
 
+import com.example.ligang.commonlibrary.loadingdrawable.LoadingRenderer;
 import com.example.ligang.commonlibrary.util.SvgPathParserUtil;
 import com.example.ligang.studydemo.R;
 
@@ -24,7 +25,7 @@ import java.util.List;
  * Created by ligang967 on 16/9/13.
  */
 
-public class SvgAnimView extends LoadingRenderer{
+public class SvgAnimView extends LoadingRenderer {
 
 
     private static final Interpolator LINEAR_INTERPOLATOR = new LinearInterpolator();

@@ -1,21 +1,14 @@
 package com.example.ligang.studydemo.dashboard.ui;
 
-import android.content.res.ColorStateList;
-import android.content.res.Resources;
-import android.content.res.TypedArray;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
-import android.support.graphics.drawable.VectorDrawableCompat;
-import android.util.AttributeSet;
-import android.util.Xml;
 import android.widget.ImageView;
 
 import com.example.ligang.commonlibrary.base.ui.BaseActivity;
+import com.example.ligang.commonlibrary.svgparse.SvgView;
 import com.example.ligang.commonlibrary.util.LogUtil;
 import com.example.ligang.studydemo.BuildConfig;
 import com.example.ligang.studydemo.R;
 import com.example.ligang.studydemo.dashboard.view.DashboardView;
-import com.example.ligang.studydemo.dashboard.view.SvgView;
 
 /**
  * Created by ligang967 on 16/9/9.
@@ -52,18 +45,13 @@ public class DashboardDemoActivity extends BaseActivity {
 //        LoadingDrawable loadingDrawable = null;
         try {
 //            loadingDrawable = new LoadingDrawable(new SvgAnimView(this));
-            SvgView svgView = new SvgView(this, R.drawable.vector_drawable_custonview_false);
+            SvgView svgView = new SvgView(this, R.drawable.vector_drawable_set);
             imageView.setImageDrawable(svgView);
+            svgView.start();
 //            loadingDrawable.start();
         } catch (Exception e) {
             e.printStackTrace();
         }
-//        VectorDrawableCompat vectorDrawableCompat = VectorDrawableCompat.create(getResources(), drawable.vector_drawable_custonview_false, null);
-//        Drawable drawable = imageView.getDrawable();
-//        //AnimatedVectorDrawableCompat实现了Animatable接口
-//        if (drawable instanceof Animatable){
-//            ((Animatable) drawable).start();
-//        }
     }
 
 

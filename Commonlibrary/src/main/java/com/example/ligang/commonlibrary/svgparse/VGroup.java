@@ -1,15 +1,10 @@
-package com.example.ligang.studydemo.dashboard.view;
+package com.example.ligang.commonlibrary.svgparse;
 
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.support.graphics.drawable.*;
 import android.support.v4.util.ArrayMap;
 import android.util.AttributeSet;
-import android.util.Log;
 
 import org.xmlpull.v1.XmlPullParser;
 

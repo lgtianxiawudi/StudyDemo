@@ -1,4 +1,4 @@
-package com.example.ligang.studydemo.dashboard.view;
+package com.example.ligang.commonlibrary.svgparse;
 
 /**
  * Created by ligang967 on 16/9/14.
@@ -6,7 +6,6 @@ package com.example.ligang.studydemo.dashboard.view;
 
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.support.graphics.drawable.*;
 import android.util.AttributeSet;
 
 import org.xmlpull.v1.XmlPullParser;

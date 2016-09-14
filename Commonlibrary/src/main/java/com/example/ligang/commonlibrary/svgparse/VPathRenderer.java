@@ -1,4 +1,4 @@
-package com.example.ligang.studydemo.dashboard.view;
+package com.example.ligang.commonlibrary.svgparse;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -7,9 +7,7 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PathMeasure;
-import android.support.graphics.drawable.VectorDrawableCompat;
 import android.support.v4.util.ArrayMap;
-import android.util.Log;
 
 /**
  * Created by ligang967 on 16/9/14.
@@ -95,7 +93,7 @@ public class VPathRenderer {
     }
 
     private void drawGroupTree(VGroup currentGroup, Matrix currentMatrix,
-                               Canvas canvas, int w, int h, ColorFilter filter) {
+                               Canvas canvas, int w, int h, ColorFilter filter,float process) {
         // Calculate current group's matrix by preConcat the parent's and
         // and the current one on the top of the stack.
         // Basically the Mfinal = Mviewport * M0 * M1 * M2;
@@ -113,23 +111,23 @@ public class VPathRenderer {
             if (child instanceof VGroup) {
                 VGroup childGroup = (VGroup) child;
                 drawGroupTree(childGroup, currentGroup.mStackedMatrix,
-                        canvas, w, h, filter);
+                        canvas, w, h, filter,process);
             } else if (child instanceof VPath) {
                 VPath childPath = (VPath) child;
-                drawPath(currentGroup, childPath, canvas, w, h, filter);
+                drawPath(currentGroup, childPath, canvas, w, h, filter,process);
             }
         }
 
         canvas.restore();
     }
 
-    public void draw(Canvas canvas, int w, int h, ColorFilter filter) {
+    public void draw(Canvas canvas, int w, int h, ColorFilter filter,float process) {
         // Traverse the tree in pre-order to draw.
-        drawGroupTree(mRootGroup, IDENTITY_MATRIX, canvas, w, h, filter);
+        drawGroupTree(mRootGroup, IDENTITY_MATRIX, canvas, w, h, filter,process);
     }
 
     private void drawPath(VGroup vGroup, VPath vPath, Canvas canvas, int w, int h,
-                          ColorFilter filter) {
+                          ColorFilter filter,float process) {
         final float scaleX = w / mViewportWidth;
         final float scaleY = h / mViewportHeight;
         final float minScale = Math.min(scaleX, scaleY);
@@ -145,7 +143,7 @@ public class VPathRenderer {
             return;
         }
         vPath.toPath(mPath);
-        final Path path = mPath;
+        final Path path = getPathByProcess(mPath,process);
 
         mRenderPath.reset();
 
@@ -180,7 +178,7 @@ public class VPathRenderer {
             if (fullPath.mFillColor != Color.TRANSPARENT) {
                 if (mFillPaint == null) {
                     mFillPaint = new Paint();
-                    mFillPaint.setStyle(Paint.Style.STROKE);
+                    mFillPaint.setStyle(Paint.Style.FILL_AND_STROKE);
                     mFillPaint.setAntiAlias(true);
                 }
 
@@ -216,6 +214,12 @@ public class VPathRenderer {
         }
     }
 
+    private Path getPathByProcess(Path temPath,float process){
+        PathMeasure pathMeasure = new PathMeasure(temPath,false);
+        Path path = new Path();
+        pathMeasure.getSegment(0,pathMeasure.getLength()*process,path,true);
+        return path;
+    }
 
     private static float cross(float v1x, float v1y, float v2x, float v2y) {
         return v1x * v2y - v1y * v2x;

@@ -1,5 +1,6 @@
-package com.example.ligang.studydemo.dashboard.view;
+package com.example.ligang.commonlibrary.svgparse;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
@@ -8,12 +9,10 @@ import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Xml;
-import android.view.View;
-
-import com.example.ligang.studydemo.R;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -25,13 +24,14 @@ import java.util.Stack;
  * Created by ligang967 on 16/9/14.
  */
 
-public class SvgView extends Drawable {
+public class SvgView extends Drawable implements ValueAnimator.AnimatorUpdateListener,Animatable {
     private static final String SHAPE_CLIP_PATH = "clip-path";
     private static final String SHAPE_GROUP = "group";
     private static final String SHAPE_PATH = "path";
     private static final String SHAPE_VECTOR = "vector";
     private VectorDrawableCompatState state;
 
+    private ValueAnimator valueAnimator;
 
     public SvgView(Context context,int resId) throws Exception {
 
@@ -48,7 +48,11 @@ public class SvgView extends Drawable {
         state.mChangingConfigurations = getChangingConfigurations();
         state.mCacheDirty = true;
         inflateInternal(resources, parser, attrs, context.getTheme(),state);
-        invalidateSelf();
+        valueAnimator = ValueAnimator.ofFloat(0,1);
+        valueAnimator.setRepeatCount(ValueAnimator.INFINITE);
+        valueAnimator.setRepeatMode(ValueAnimator.RESTART);
+        valueAnimator.setDuration(10*1000);
+        valueAnimator.addUpdateListener(this);
     }
     private TypedArray obtainAttributes(
             Resources res, Resources.Theme theme, AttributeSet set, int[] attrs) {
@@ -119,7 +123,7 @@ public class SvgView extends Drawable {
         a.recycle();
     }
     /**
-     * Parses a {@link android.graphics.PorterDuff.Mode} from a tintMode
+     * Parses a {@link PorterDuff.Mode} from a tintMode
      * attribute's enum value.
      */
     private static PorterDuff.Mode parseTintModeCompat(int value, PorterDuff.Mode defaultMode) {
@@ -206,9 +210,11 @@ public class SvgView extends Drawable {
         }
     }
 
+    float process = 0;
+
     @Override
     public void draw(Canvas canvas) {
-        state.mVPathRenderer.draw(canvas,200,200,null);
+        state.mVPathRenderer.draw(canvas,getBounds().width(),getBounds().height(),null,process);
     }
 
     @Override
@@ -224,5 +230,26 @@ public class SvgView extends Drawable {
     @Override
     public int getOpacity() {
         return PixelFormat.TRANSPARENT;
+    }
+
+    @Override
+    public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        process =(float) valueAnimator.getAnimatedValue();
+        invalidateSelf();
+    }
+
+    @Override
+    public void start() {
+        valueAnimator.start();
+    }
+
+    @Override
+    public void stop() {
+        valueAnimator.cancel();
+    }
+
+    @Override
+    public boolean isRunning() {
+        return valueAnimator.isRunning();
     }
 }

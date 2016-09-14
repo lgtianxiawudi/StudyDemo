@@ -1,4 +1,4 @@
-package com.example.ligang.studydemo.dashboard.view;
+package com.example.ligang.commonlibrary.svgparse;
 
 /**
  * Created by ligang967 on 16/9/14.

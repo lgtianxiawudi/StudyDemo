@@ -1,4 +1,4 @@
-package com.example.ligang.studydemo.dashboard.view;
+package com.example.ligang.commonlibrary.loadingdrawable;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;

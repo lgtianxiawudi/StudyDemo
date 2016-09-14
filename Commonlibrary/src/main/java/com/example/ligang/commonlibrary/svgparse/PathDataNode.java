@@ -1,4 +1,4 @@
-package com.example.ligang.studydemo.dashboard.view;
+package com.example.ligang.commonlibrary.svgparse;
 
 import android.graphics.Path;
 import android.util.Log;

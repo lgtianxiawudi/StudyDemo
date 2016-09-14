@@ -1,4 +1,4 @@
-package com.example.ligang.studydemo.dashboard.view;
+package com.example.ligang.commonlibrary.svgparse;
 
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
@@ -10,7 +10,6 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.support.graphics.drawable.VectorDrawableCompat;
 
 /**
  * Created by ligang967 on 16/9/14.
@@ -85,7 +84,7 @@ public class VectorDrawableCompatState extends Drawable.ConstantState {
     public void updateCachedBitmap(int width, int height) {
         mCachedBitmap.eraseColor(Color.TRANSPARENT);
         Canvas tmpCanvas = new Canvas(mCachedBitmap);
-        mVPathRenderer.draw(tmpCanvas, width, height, null);
+        mVPathRenderer.draw(tmpCanvas, width, height, null,1);
     }
 
     public void createCachedBitmapIfNeeded(int width, int height) {
