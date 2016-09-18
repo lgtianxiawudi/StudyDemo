@@ -50,3 +50,4 @@ captures/
 
 gradle/
 projectFilesBackup/
+.idea/
