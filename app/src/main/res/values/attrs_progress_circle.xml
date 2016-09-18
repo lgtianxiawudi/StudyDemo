@@ -1,0 +1,21 @@
+<resources>
+    <declare-styleable name="ProgressCircle">
+        <attr name="minRaius" format="float" />
+        <attr name="currentProcess" format="float" />
+        <attr name="maxProcess" format="float" />
+        <attr name="innerColor" format="color|reference"/>
+        <attr name="outerColor" format="color|reference"/>
+        <attr name="dividerLength" format="float"/>
+        <attr name="duration" format="integer"/>
+        <attr name="repearCount" format="integer">
+            <enum name="INFINITE" value="-1"/>
+        </attr>
+        <attr name="repeatModle">
+            <enum name="INFINITE" value="-1"/>
+            <enum name="RESTART" value="1"/>
+            <enum name="REVERSE" value="2"/>
+        </attr>
+        <attr name="processColor" format="color|reference"/>
+        <attr name="lineColor" format="color|reference"/>
+    </declare-styleable>
+</resources>

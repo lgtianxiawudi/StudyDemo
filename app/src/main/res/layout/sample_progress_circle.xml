@@ -1,0 +1,23 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.example.ligang.studydemo.progress.view.ProgressCircle
+        android:id="@+id/demo_process"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="#ccc"
+        android:paddingBottom="40dp"
+        android:paddingLeft="20dp"
+        app:minRaius="100"
+        app:dividerLength="40"
+        app:duration="4000"
+        app:currentProcess="50"
+        app:maxProcess="200"
+        app:repearCount="INFINITE"
+        app:repeatModle="RESTART"
+        app:processColor="@android:color/holo_green_light"
+        app:lineColor="@android:color/white"/>
+
+</FrameLayout>
