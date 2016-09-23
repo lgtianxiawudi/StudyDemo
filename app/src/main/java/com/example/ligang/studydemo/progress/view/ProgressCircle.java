@@ -210,10 +210,14 @@ public class ProgressCircle extends View implements Animatable, ValueAnimator.An
         canvas.drawText(content,centerX-widht/2,centerY,textPaint);
 
         canvas.restoreToCount(saveCount);
+
     }
 
     @Override
     public void start() {
+        if (animator!=null&& animator.isRunning()){
+            return;
+        }
         animator = ValueAnimator.ofFloat(0,currentProcess);
         animator.setDuration(duration);
         animator.setRepeatCount(repearCount);
@@ -241,6 +245,20 @@ public class ProgressCircle extends View implements Animatable, ValueAnimator.An
     @Override
     public void onAnimationUpdate(ValueAnimator valueAnimator) {
         drasProcess = (float)valueAnimator.getAnimatedValue();
-        invalidate();
+        postInvalidate();
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        if (animator!=null){
+            animator.cancel();
+        }
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        start();
     }
 }

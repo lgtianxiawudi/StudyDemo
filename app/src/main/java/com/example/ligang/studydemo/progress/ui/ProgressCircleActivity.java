@@ -25,7 +25,7 @@ public class ProgressCircleActivity extends BaseActivity {
 
     @Override
     protected String currActivityName() {
-        return null;
+        return getString(R.string.progress_title);
     }
 
     @Override

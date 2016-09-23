@@ -1,5 +1,6 @@
 package com.example.ligang.studydemo.main.ui;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,9 +13,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ligang.commonlibrary.base.ui.BaseFragment;
+import com.example.ligang.commonlibrary.util.ActivityUtil;
 import com.example.ligang.commonlibrary.util.DividerItemDecoration;
 import com.example.ligang.studydemo.R;
+import com.example.ligang.studydemo.dashboard.ui.DashboardDemoActivity;
 import com.example.ligang.studydemo.main.adapter.MainListAdapter;
+import com.example.ligang.studydemo.nestedsroll.ui.NestedScrollingCustomActivity;
+import com.example.ligang.studydemo.progress.ui.ProgressCircleActivity;
+import com.example.ligang.studydemo.scratch.ui.ScratchActivity;
 
 import org.w3c.dom.Text;
 
@@ -65,11 +71,19 @@ public class HomeFragment extends BaseFragment implements AdapterView.OnItemClic
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         switch (i){
             case 0:{//刮奖功能
-
+                ActivityUtil.startActivity(getActivity(), ScratchActivity.class);
             }
             break;
-            case 1:{
-
+            case 1:{//仪表盘
+                ActivityUtil.startActivity(getActivity(), DashboardDemoActivity.class);
+            }
+            break;
+            case 2:{//进度条
+                ActivityUtil.startActivity(getActivity(), ProgressCircleActivity.class);
+            }
+            break;
+            case 3:{
+                ActivityUtil.startActivity(getActivity(), NestedScrollingCustomActivity.class);
             }
             break;
         }

@@ -24,6 +24,7 @@
             android:id="@+id/main_tab_index"
             style="@style/style_main_tab"
             android:drawableTop="@drawable/main_tab_home"
+            android:checked="true"
             android:text="@string/main_tab_index" />
 
         <RadioButton

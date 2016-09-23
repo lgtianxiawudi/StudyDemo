@@ -8,10 +8,38 @@
     <string name="main_tab_library">Lib</string>
     <array name="main_list">
         <item>自定义刮奖功能</item>
+        <item>仪表盘</item>
         <item>进度条</item>
+        <item>NestedScrolling自定义</item>
     </array>
     //scratch
     <string name="scratch_title">自定义刮奖功能</string>
     //仪表盘
     <string name="dashboard_title">仪表盘</string>
+    //进度条
+    <string name="progress_title">进度条</string>
+    //NestedScrolling
+    <string name="nested_custom">NestedScrolling</string>
+    <array name="nested_custom_list">
+        <item>自定义刮奖功能</item>
+        <item>仪表盘</item>
+        <item>进度条</item>
+        <item>NestedScrolling自定义</item>
+        <item>自定义刮奖功能</item>
+        <item>仪表盘</item>
+        <item>进度条</item>
+        <item>NestedScrolling自定义</item>
+        <item>自定义刮奖功能</item>
+        <item>仪表盘</item>
+        <item>进度条</item>
+        <item>NestedScrolling自定义</item>
+        <item>自定义刮奖功能</item>
+        <item>仪表盘</item>
+        <item>进度条</item>
+        <item>NestedScrolling自定义</item>
+        <item>自定义刮奖功能</item>
+        <item>仪表盘</item>
+        <item>进度条</item>
+        <item>NestedScrolling自定义</item>
+    </array>
 </resources>
