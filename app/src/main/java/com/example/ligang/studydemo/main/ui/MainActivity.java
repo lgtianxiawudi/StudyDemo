@@ -6,7 +6,10 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
+import com.example.BindView;
+import com.example.ligang.commonlibrary.annition.Ioc;
 import com.example.ligang.commonlibrary.base.ui.BaseActivity;
 import com.example.ligang.studydemo.R;
 import com.example.ligang.studydemo.main.adapter.MainListAdapter;
@@ -15,7 +18,8 @@ import java.util.Arrays;
 
 public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
 
-    private RadioGroup mainTab;
+    @BindView(R.id.main_tab)
+    public RadioGroup mainTab;
 
     private HomeFragment homeFragment = null;
 
@@ -24,6 +28,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     private ShopFragment shopFragment = null;
 
     private LibraryFragment libraryFragment = null;
+
 
     @Override
     protected String currActivityName() {
@@ -42,7 +47,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
     @Override
     protected void initView() {
-        mainTab = (RadioGroup)findViewById(R.id.main_tab);
+        Ioc.inject(this);
         mainTab.setOnCheckedChangeListener(this);
         homeFragment = new HomeFragment();
         messageFragment = new MessageFragment();
